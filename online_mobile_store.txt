@@ -1,0 +1,96 @@
+print("Welcome to the Online Mobile Store")
+
+def func1():
+    # Input the price range of the mobile
+    while True:
+        try:
+            a = int(input("Enter the price range of the mobile. Should be between 10000 to 40000: "))
+            if 10000 <= a <= 20000:
+                print("You have selected the price range between 10000 and 20000.")
+                return 15000  # Price range between 10000 and 20000
+            elif 20000 < a <= 30000:
+                print("You have selected the price range between 20000 and 30000.")
+                return 25000  # Price range between 20000 and 30000
+            elif 30000 < a <= 40000:
+                print("You have selected the price range between 30000 and 40000.")
+                return 35000  # Price range between 30000 and 40000
+            else:
+                print("Incorrect input, please enter a value between 10000 and 40000.")
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
+def func2():
+    while True:
+        brand = input("Enter brand (SAMSUNG, OPPO, REDMI): ").upper()
+        if brand in ["SAMSUNG", "OPPO", "REDMI"]:
+            print(f"You have selected {brand} brand.")
+            return brand
+        else:
+            print("Incorrect brand input, please try again.")
+
+def func3():
+    while True:
+        memory_and_ram = input("Please select the memory and RAM (32GB and 4GB, 64GB and 8GB, 128GB and 12GB): ")
+        if memory_and_ram == "32GB and 4GB":
+            print("You have selected 32GB and 4GB RAM.")
+            return "32GB and 4GB"
+        elif memory_and_ram == "64GB and 8GB":
+            print("You have selected 64GB and 8GB RAM.")
+            return "64GB and 8GB"
+        elif memory_and_ram == "128GB and 12GB":
+            print("You have selected 128GB and 12GB RAM.")
+            return "128GB and 12GB"
+        else:
+            print("Incorrect input, please try again.")
+
+def func4():
+    while True:
+        camera = input("Please select any one of the camera options: 1. 4MP 2. 6MP: ")
+        if camera == "4MP":
+            print("You have selected 4MP camera resolution.")
+            return "4MP"
+        elif camera == "6MP":
+            print("You have selected 6MP camera resolution.")
+            return "6MP"
+        else:
+            print("Incorrect input, please try again.")
+
+def func5():
+    while True:
+        color = input("Please select the color of mobile phone: 1. Red 2. Green 3. Cyan: ").lower()
+        if color in ["red", "green", "cyan"]:
+            print(f"You have selected the color: {color}.")
+            return color
+        else:
+            print("Incorrect input, please try again.")
+
+def generate_bill(price, brand, memory_ram, camera, color):
+    print("\nBill Summary:")
+    print(f"Brand: {brand}")
+    print(f"Memory & RAM: {memory_ram}")
+    print(f"Camera: {camera}")
+    print(f"Color: {color}")
+    print(f"Price: ${price}")
+
+def main():
+    # Main function where everything happens
+    while True:
+        # Get user preferences and choices
+        price = func1()  # Get price range
+        brand = func2()  # Get brand selection
+        memory_ram = func3()  # Get memory and RAM
+        camera = func4()  # Get camera resolution
+        color = func5()  # Get color choice
+
+        # Generate and print the bill
+        generate_bill(price, brand, memory_ram, camera, color)
+        
+        # Ask user if they want to continue shopping
+        continue_shopping = input("\nDo you want to continue shopping? (y/n): ").lower()
+        if continue_shopping != "y":
+            print("Thank you for shopping with us!")
+            break
+
+# Run the main function
+if __name__ == "__main__":
+    main()
